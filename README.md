@@ -1,3 +1,11 @@
+# Uso
+
+```bash
+bundle install
+bundle exec rake db:migrate db:seed
+bundle exec rails server
+```
+
 # Desafio programação - para vaga Back-end
 
 Por favor leiam este documento do começo ao fim, com muita atenção.

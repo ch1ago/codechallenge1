@@ -1,0 +1,10 @@
+<h1>Auth#index</h1>
+<p>Find me in app/views/auth/index.html.erb</p>
+
+<%= form_tag :auth do %>
+	<%
+		options = options_from_collection_for_select(Org.all, :id, :name)
+	%>
+	<%= select_tag :org_id, options, prompt: 'Escolha uma empresa' %>
+	<%= submit_tag 'Entrar' %>
+<% end %>

@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body>
+  	<% flash.each do |k, v| %>
+  		<%= content_tag :p, v, class: k %>
+  		<hr/>
+  	<% end %>
+
+  	<% if current_org %>
+		<%= button_to 'sair', :auth, method: :delete %>
+	<% else %>
+		<%= link_to 'autenticar', :auth %>
+	<% end %>
+	<hr/>
+
     <%= yield %>
   </body>
 </html>
