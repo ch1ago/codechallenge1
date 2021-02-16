@@ -14,6 +14,7 @@
   	<% end %>
 
   	<% if current_org %>
+  		ORGANIZACAO: <%= current_org.name %>
 		<%= button_to 'sair', :auth, method: :delete %>
 	<% else %>
 		<%= link_to 'autenticar', :auth %>

@@ -1,0 +1,38 @@
+<%= render partial: '/home/menu' %>
+
+<h1>Home#transfers</h1>
+<p>Find me in app/views/home/transfers.html.erb</p>
+
+<hr/>
+
+<%= form_tag :home_upload_transfers, multipart: true do %>
+	<%= file_field_tag :file, accept: ".cnab" %>
+	<%= submit_tag 'Enviar' %>
+<% end %>
+
+<hr/>
+
+<table border="1">
+	<thead>
+		<th colspan="3">Tipo</th>
+		<th>Hora</th>
+		<th>Valor</th>
+		<th>CPF</th>
+		<th>Cartao</th>
+		<th>Loja</th>
+		<th>Dono</th>
+	</thead>
+	<% @transfers.each do |transfer| %>
+		<tr>
+			<td><%= transfer.kind_sign %></td>
+			<td><%= transfer.kind_nature %></td>
+			<td><%= transfer.kind_name %></td>
+			<td><%= transfer.at %></td>
+			<td style="text-align: right"><%= number_to_currency transfer.amount, unit: 'R$' %></td>
+			<td><%= TransferDecorator.cpf transfer.cpf %></td>
+			<td><%= transfer.card_number %></td>
+			<td><%= transfer.store_name %></td>
+			<td><%= transfer.store_owner %></td>
+		</tr>
+	<% end %>
+</table>
